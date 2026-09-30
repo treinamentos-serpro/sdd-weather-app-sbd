@@ -3,18 +3,18 @@ interface ErrorStateProps {
   onRetry: () => void;
 }
 
-/** Estado de erro com ação de "tentar novamente". */
 export default function ErrorState({ message, onRetry }: ErrorStateProps) {
   return (
-    <div role="alert" className="flex flex-col items-center gap-4 py-16 text-center">
-      <span aria-hidden="true" className="text-4xl">
-        ⚠️
-      </span>
-      <p className="text-white/80">{message}</p>
+    <div
+      className="rounded-lg border border-red-300/30 bg-red-950/30 p-6 shadow-glass backdrop-blur-md"
+      role="alert"
+    >
+      <h2 className="text-lg font-semibold text-white">Não foi possível concluir</h2>
+      <p className="mt-2 text-sm text-red-100">{message}</p>
       <button
-        type="button"
+        className="mt-5 rounded-md bg-white px-4 py-2 font-semibold text-night-900 transition-colors hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-2 focus:ring-offset-night-900"
         onClick={onRetry}
-        className="rounded-lg bg-accent-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-600"
+        type="button"
       >
         Tentar novamente
       </button>
